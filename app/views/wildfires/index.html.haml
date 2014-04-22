@@ -1,0 +1,30 @@
+%h1 All Wildfires
+
+- @wildfires.each do |d|
+	Year:
+	= d.year
+	%br
+	Geographic Area:
+	= d.area
+	%br
+	Wildfire Acres:
+	= d.acres
+	%br
+	Cause:
+	= d.cause
+	%br
+	%br
+
+= button_to "Add Wildfire", new_wildfire_path, method: "get"
+
+%br
+
+= form_tag wildfires_path, :method => "get", id: "search-form" do
+	= text_field_tag :search, params[:search], placeholder: "Year, Area, Acres, or Cause..." 
+	= submit_tag "Search", :name => nil 
+
+%br
+
+/ = form_tag wildfires_path, :method => "get", id: "search-form" do
+/ 	= text_field_tag :search2, params[:search], placeholder: "Year, Area, Acres, or Cause..." 
+/ 	= submit_tag "Search", :name => nil 

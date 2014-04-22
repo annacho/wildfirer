@@ -1,0 +1,19 @@
+%h1 All Wildfire Locations
+
+- @locations.each do |d|
+	Geographic Area:
+	= d.area
+	%br
+	Wildfire Incidence:
+	= d.incidence
+	%br
+	Year:
+	= d.year
+	%br
+	Cause:
+	= d.cause
+	%br
+	%br
+
+= button_to "Add Wildfire Location", new_location_path, method: "get"
+

@@ -1,0 +1,18 @@
+%h1 Add A Wildfire Location
+
+= form_for @new_location, url: locations_path do |f| 
+	= f.label :area
+	= f.text_field :area
+	%br
+	= f.label :incidence
+	= f.text_field :incidence
+	%br
+	= f.label :year
+	= f.text_field :year
+	%br
+	= f.label :cause
+	= f.select :cause, options_for_select(["Lightning", "Human"])
+	%br
+	= f.submit
+
+	

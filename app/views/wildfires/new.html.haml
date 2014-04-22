@@ -1,0 +1,17 @@
+%h1 Add A Wildfire
+
+= form_for @new_wildfire, url: wildfires_path do |f| 
+	= f.label :year
+	= f.text_field :year
+	%br
+	= f.label :area
+	= f.select :area, Locations.all.collect{|d| [d.area, d.id] }
+	%br
+	= f.label :acres
+	= f.text_field :acres
+	%br
+
+	= f.label :cause
+	= f.select :cause, options_for_select(["Lightning", "Human"])
+	%br
+	= f.submit
