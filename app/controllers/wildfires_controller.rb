@@ -3,9 +3,9 @@ class WildfiresController < ApplicationController
 		@wildfires = Wildfire.all
 	end
 
-	# def search
- #  	@wildfires = Wildfires.search params[:search]
-	# end
+	def search
+  	@wildfires = Wildfires.search params[:search]
+	end
 
 	def new 
 		@new_wildfire = Wildfire.new

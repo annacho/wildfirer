@@ -24,9 +24,12 @@
 %br
 %br
 <a href="/locations">All Wildfire Incidences By Region</a>
-/ = form_tag wildfires_path, :method => "get", id: "search-form" do
-/ 	= text_field_tag :search, params[:search], placeholder: "Year, Area, Acres, or Cause..." 
-/ 	= submit_tag "Search", :name => nil 
+%br
+%h2 Search Wildfires By Year, Area, Acres or Cause
+
+= form_tag wildfires_path, :method => "get", id: "search-form" do
+	= text_field_tag :search, params[:search], placeholder: "Year, Area, Acres, or Cause..." 
+	= submit_tag "Search", :name => nil 
 
 %br
 
