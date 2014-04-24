@@ -1,19 +1,45 @@
-%h1 All Wildfire Locations
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+<div class="jumbotron">
 
-- @locations.each do |d|
+%h1 Annual Wildfire Incidences By Region
+
+- @locations.each do |l|
 	Geographic Area:
-	= d.area
+	= l.area
 	%br
 	Wildfire Incidence:
-	= d.incidence
+	= l.incidence
 	%br
 	Year:
-	= d.year
+	= l.year
 	%br
 	Cause:
-	= d.cause
+	= l.cause
 	%br
+	=button_to "Delete", "/locations/#{l.id}", {:action => "delete", :method => :delete}
 	%br
 
 = button_to "Add Wildfire Location", new_location_path, method: "get"
+	
+%br
+%br
+<a href="/wildfires">All Wildfire Acreage By Region</a>
+%br
+%h2 Search Wildfires
 
+= form_tag locations_path, method: "get" do
+	= label_tag "Geographic Area"
+	= select_tag 'search[area]', options_for_select(Location.pluck(:area)), include_blank: true
+	%br
+	= label_tag "Incidence"
+	= text_field_tag 'search[incidence]'
+	%br
+	= label_tag "Year"
+	= text_field_tag 'search[year]'
+	%br
+	= label_tag "Cause"
+	= select_tag 'search[cause]', options_for_select(["Human", "Lightning"]), include_blank:true	
+	%br
+	= submit_tag "SEARCH"
+
+</div>

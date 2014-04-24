@@ -1,0 +1,36 @@
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+<div class="jumbotron">
+
+= form_tag search_locations_path, method: "get" do
+	= select :area, options_for_select(Location.pluck(:area))
+	%br
+	= label_tag "Incidence"
+	= text_field_tag :incidence
+	%br
+	= label_tag "Year"
+	= text_field_tag :year
+	%br
+	= label_tag "Cause"
+	= select :cause, options_for_select(["Lightning", "Human"])
+	%br
+	= submit_tag "SEARCH"
+
+%h1 All Locations
+
+- @locations.each do |l|
+	Geographic Area:
+	= l.area
+	%br
+	Wildfire Incidence:
+	= l.incidence
+	%br
+	Year:
+	= l.year
+	%br
+	Cause:
+	= l.cause
+	%br
+
+= button_to "Add Location", new_location_path, method: "get"
+
+</div>

@@ -1,12 +1,18 @@
 Rails.application.routes.draw do
 
-  resources :locations # do
-
-    # collection do 
-    #   get "results"
+  resources :locations do
+    member do
+   # collection do 
+      get :search # GET '/wildfires/search'
     # end
+    end
+  end
 
-  resources :wildfires
+  resources :wildfires do
+    member do
+      get :download_file
+    end
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
