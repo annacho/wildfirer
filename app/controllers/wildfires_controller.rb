@@ -44,8 +44,8 @@ class WildfiresController < ApplicationController
 
 	def download_file
 		@wildfire = Wildfire.find(params[:id])
-		file = @wildfire.file
-		send_file file.path
+		upload_file = @wildfire.file
+		send_file upload_file.path
 	end
 
 	private 

@@ -1,8 +1,37 @@
 <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
 <div class="jumbotron">
 
+%h1 All Wildfire Acreage By Region
+
+/ - @wildfires.each do |w|
+/ 	Year:
+/ 	= w.year
+/ 	%br
+/ 	Geographic Area:
+/ 	= w.location.area
+/ 	%br
+/ 	Wildfire Acres:
+/ 	= w.acres
+/ 	%br
+/ 	Cause:
+/ 	= w.cause
+/ 	%br
+/ 	= button_to "Delete", "/wildfires/#{w.id}", {:action => "delete", :method => :delete}
+/ 	%br
+
 .container
-	= @wildfire.location_id
+	Year:
+	= @wildfire.year
+	%br
+	Geographic Area:
+	= @wildfire.location.area
+	%br
+	Wildfire Acres:
+	= @wildfire.acres
+	%br
+	Cause:
+	= @wildfire.cause
+
 	%br
 
 = link_to "File",
